@@ -1,0 +1,1 @@
+consumir 3 API públicas no HMTL (deve ter 3 campos,  botões e e mostrar o resulta de cada consulta)

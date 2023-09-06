@@ -1,0 +1,1 @@
+criar um código em javascript ou node que leia uma palavra via teclado e retorne se é palindrome ou não

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumir APIs Públicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Consultas de API</h1>
+
+        <button id="getUserButton" class="btn btn-primary me-3">Obter Usuário</button>
+        <button id="getJobButton" class="btn btn-success me-3">Obter Emprego</button>
+        <button id="getPokemonButton" class="btn btn-info">Obter Pokémon</button>
+
+        <div id="userResult" class="mt-4">
+            <h2>Resultado do Usuário</h2>
+            <pre class="bg-light p-3" id="userOutput"></pre>
+        </div>
+        
+        <div id="jobResult" class="mt-4">
+            <h2>Resultado do Emprego</h2>
+            <pre class="bg-light p-3" id="jobOutput"></pre>
+        </div>
+        
+        <div id="pokemonResult" class="mt-4">
+            <h2>Resultado do Pokémon</h2>
+            <pre class="bg-light p-3" id="pokemonOutput"></pre>
+        </div>
+    </div>
+
+    <script>
+        const getUserButton = document.getElementById('getUserButton');
+        const getJobButton = document.getElementById('getJobButton');
+        const getPokemonButton = document.getElementById('getPokemonButton');
+
+        const userResult = document.getElementById('userResult');
+        const jobResult = document.getElementById('jobResult');
+        const pokemonResult = document.getElementById('pokemonResult');
+
+        getUserButton.addEventListener('click', () => {
+            fetch('https://jsonplaceholder.typicode.com/users/1')
+                .then(response => response.json())
+                .then(data => {
+                    userResult.innerHTML = JSON.stringify(data);
+                });
+        });
+
+        getJobButton.addEventListener('click', () => {
+            fetch('https://reqres.in/api/users/1')
+                .then(response => response.json())
+                .then(data => {
+                    jobResult.innerHTML = JSON.stringify(data);
+                });
+        });
+
+        getPokemonButton.addEventListener('click', () => {
+            fetch('https://pokeapi.co/api/v2/pokemon/1')
+                .then(response => response.json())
+                .then(data => {
+                    pokemonResult.innerHTML = JSON.stringify(data);
+                });
+        });
+    </script>
+</body>
+</html>
